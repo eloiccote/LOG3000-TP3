@@ -1,13 +1,20 @@
+/*
+ * Feuille de style pour la calculatrice web Flask
+ * Définit l'apparence et le layout de l'interface utilisateur
+ */
+
+/* Style global du body - Centre la calculatrice sur la page */
 body {
    font-family: Arial, sans-serif;
    background-color: #f0f0f0;
    display: flex;
-   justify-content: center;
-   align-items: center;
-   height: 100vh;
+   justify-content: center;  /* Centrage horizontal */
+   align-items: center;      /* Centrage vertical */
+   height: 100vh;            /* Hauteur pleine de la fenêtre */
    margin: 0;
 }
 
+/* Conteneur principal de la calculatrice */
 .calculator {
    width: 100%;
    max-width: 600px;
@@ -18,12 +25,14 @@ body {
    text-align: center;
 }
 
+/* Titre de la calculatrice */
 h1 {
    color: #fff;
    margin-bottom: 20px;
    font-size: 36px;
 }
 
+/* Écran d'affichage de la calculatrice */
 #display {
    width: 100%;
    height: 80px;
@@ -37,12 +46,14 @@ h1 {
    color: #fff;
 }
 
+/* Conteneur de la grille de boutons */
 .buttons {
    display: grid;
    grid-template-columns: repeat(4, 1fr);
    gap: 15px;
 }
 
+/* Style de base pour tous les boutons */
 .btn {
    width: 100%;
    padding: 30px;
@@ -55,22 +66,27 @@ h1 {
    transition: background-color 0.2s;
 }
 
+/* État survol pour les boutons numériques */
 .btn:hover {
    background-color: #555;
 }
 
+/* Style spécifique pour les boutons d'opérateurs */
 .operator {
    background-color: #ff9500;
 }
 
+/* État survol pour les boutons d'opérateurs */
 .operator:hover {
    background-color: #e68a00;
 }
 
+/* État actif (lors du clic) pour les boutons numériques */
 .btn:active {
    background-color: #444;
 }
 
+/* État actif (lors du clic) pour les boutons d'opérateurs */
 .operator:active {
    background-color: #cc7a00;
 }

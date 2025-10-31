@@ -1,47 +1,77 @@
+<!--
+   Template HTML pour la calculatrice web Flask
+   Affiche une interface de calculatrice avec des boutons numériques et d'opérateurs
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Flask Calculator</title>
+<!-- Lien vers la feuille de style CSS -->
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 <div class="calculator">
    <h1>Flask Calculator</h1>
+   
+   <!-- Formulaire principal qui soumet les calculs via POST -->
    <form method="POST">
+      <!-- Écran d'affichage en lecture seule pour l'expression et le résultat -->
       <input type="text" name="display" id="display" value="{{ result }}" readonly>
 
+      <!-- Grille de boutons pour les chiffres et opérateurs -->
       <div class="buttons">
+         <!-- Première ligne : 1, 2, 3, + -->
          <button type="button" class="btn" onclick="appendToDisplay('1')">1</button>
-         <button type="button" class="btn" onclick="appendToDisplay('2')">02</button>
+         <button type="button" class="btn" onclick="appendToDisplay('2')">02</button> <!-- TODO: Corriger l'affichage du bouton (devrait être "2" et non "02") -->
          <button type="button" class="btn" onclick="appendToDisplay('3')">3</button>
          <button type="button" class="btn operator" onclick="appendToDisplay('+')">+</button>
 
+         <!-- Deuxième ligne : 4, 5, 6, - -->
          <button type="button" class="btn" onclick="appendToDisplay('4')">4</button>
          <button type="button" class="btn" onclick="appendToDisplay('5')">5</button>
          <button type="button" class="btn" onclick="appendToDisplay('6')">6</button>
          <button type="button" class="btn operator" onclick="appendToDisplay('-')">-</button>
 
+         <!-- Troisième ligne : 7, 8, 9, * -->
          <button type="button" class="btn" onclick="appendToDisplay('7')">7</button>
-         <button type="button" class="btn" onclick="appendToDisplay('8')">88</button>
+         <button type="button" class="btn" onclick="appendToDisplay('8')">88</button> <!-- TODO: Corriger l'affichage du bouton (devrait être "8" et non "88") -->
          <button type="button" class="btn" onclick="appendToDisplay('9')">9</button>
-         <button type="button" class="btn operator" onclick="appendToDisplay('*')"></button>
+         <button type="button" class="btn operator" onclick="appendToDisplay('*')"></button> <!-- TODO: Ajouter le symbole * dans le bouton (actuellement vide) -->
 
+         <!-- Quatrième ligne : 0, C, =, / -->
          <button type="button" class="btn" onclick="appendToDisplay('0')">0</button>
          <button type="button" class="btn" onclick="clearDisplay()">C</button>
-         <button type="submit" class="btn operator">=</button>
-         <button type="button" class="btn operator" onclick="appendToDisplay('/')"></button>
+         <button type="submit" class="btn operator">=</button> <!-- Bouton submit pour envoyer le formulaire -->
+         <button type="button" class="btn operator" onclick="appendToDisplay('/')"></button> <!-- TODO: Ajouter le symbole / dans le bouton (actuellement vide) -->
       </div>
    </form>
 </div>
 
+<!-- Script JavaScript pour gérer l'interaction avec la calculatrice -->
 <script>
+   /**
+    * Ajoute une valeur (chiffre ou opérateur) à l'écran d'affichage.
+    * 
+    * @param {string} value - La valeur à ajouter à l'écran
+    */
    function appendToDisplay(value) {
       const display = document.getElementById('display');
+      
+      // TODO: Corriger le bug - Si l'écran contient un message d'erreur (commence par "Error:"),
+      // il faut d'abord effacer l'écran avant d'ajouter la nouvelle valeur.
+      // Actuellement, le message d'erreur reste et le nouveau chiffre/opérateur s'ajoute à la fin.
+      // Exemple du bug : "Error: invalid expression" + clic sur "5" = "Error: invalid expression5"
+      // Solution suggérée : if (display.value.startsWith('Error:')) { display.value = ''; }
+      
+      // Concaténer la nouvelle valeur à la fin du contenu actuel
       display.value += value;
    }
 
+   /**
+    * Efface complètement le contenu de l'écran d'affichage.
+    */
    function clearDisplay() {
       document.getElementById('display').value = '';
    }
