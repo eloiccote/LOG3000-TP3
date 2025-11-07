@@ -27,7 +27,7 @@ def test_calculate_substraction():
 
 def test_calculate_multiplication(): 
     assert calculate("1*7") == 7
-    assert calculate(" 5 * 0") == 5 
+    assert calculate(" 5 * 0") == 0
     assert calculate("2 * 3") == 6
 
 def test_calculate_division(): 
