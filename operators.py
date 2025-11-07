@@ -31,7 +31,7 @@ def subtract(a, b):
 
     #TODO: Corriger la fonction pour que le résultat soit a - b
     
-    return b - a
+    return a - b
 
 
 def multiply(a, b):
