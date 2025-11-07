@@ -29,9 +29,10 @@ def subtract(a, b):
         float: Le résultat de a - b
     """
 
+
     #TODO: Corriger la fonction pour que le résultat soit a - b
     
-    return b - a
+    return a-b
 
 
 def multiply(a, b):
@@ -47,6 +48,7 @@ def multiply(a, b):
     """
     #TODO: Corriger la fonction pour que le résultat soit a * b (en ce moment, il calcule a^b)
     return a ** b
+
 
 
 def divide(a, b):
