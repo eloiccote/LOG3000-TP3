@@ -1,9 +1,11 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import pytest
 
-import pytest 
-from app import calculate, app 
+import re
+
+from app import calculate, app
 
 """
     Fichier de tests pour app.py  
@@ -87,8 +89,9 @@ def test_html_button_product(client):
 
     assert '>' not in html.split('*')[0]
 
-def test_html_button_division(client): 
+def test_html_button_division(client):
     response = client.get('/')
     html = response.data.decode('utf-8')
 
-    assert '>' not in html.split('/')[0]
+    assert re.search(r'<button[^>]*>/</button>', html) or re.search(r'value="/"', html), \
+        "Division button not found in HTML"
