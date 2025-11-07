@@ -24,11 +24,11 @@
       <div class="buttons">
          <!-- Première ligne : 1, 2, 3, + -->
          <button type="button" class="btn" onclick="appendToDisplay('1')">1</button>
-         <button type="button" class="btn" onclick="appendToDisplay('2')">02</button> <!-- TODO: Corriger l'affichage du bouton (devrait être "2" et non "02") -->
+         <button type="button" class="btn" onclick="appendToDisplay('2')">2</button> <!-- TODO: Corriger l'affichage du bouton (devrait être "2" et non "02") -->
          <button type="button" class="btn" onclick="appendToDisplay('3')">3</button>
          <button type="button" class="btn operator" onclick="appendToDisplay('+')">+</button>
 
-         <!-- Deuxième ligne : 4, 5, 6, - -->
+         <!-- Deuxième ligne : 4, 5, 6 - -->
          <button type="button" class="btn" onclick="appendToDisplay('4')">4</button>
          <button type="button" class="btn" onclick="appendToDisplay('5')">5</button>
          <button type="button" class="btn" onclick="appendToDisplay('6')">6</button>
@@ -36,20 +36,21 @@
 
          <!-- Troisième ligne : 7, 8, 9, * -->
          <button type="button" class="btn" onclick="appendToDisplay('7')">7</button>
-         <button type="button" class="btn" onclick="appendToDisplay('8')">88</button> <!-- TODO: Corriger l'affichage du bouton (devrait être "8" et non "88") -->
+         <button type="button" class="btn" onclick="appendToDisplay('8')">8</button> <!-- TODO: Corriger l'affichage du bouton (devrait être "8" et non "88") -->
          <button type="button" class="btn" onclick="appendToDisplay('9')">9</button>
          <button type="button" class="btn operator" onclick="appendToDisplay('*')">*</button> <!-- TODO: Ajouter le symbole * dans le bouton (actuellement vide) -->
+
 
          <!-- Quatrième ligne : 0, C, =, / -->
          <button type="button" class="btn" onclick="appendToDisplay('0')">0</button>
          <button type="button" class="btn" onclick="clearDisplay()">C</button>
          <button type="submit" class="btn operator">=</button> <!-- Bouton submit pour envoyer le formulaire -->
-         <button type="button" class="btn operator" onclick="appendToDisplay('/')"></button> <!-- TODO: Ajouter le symbole / dans le bouton (actuellement vide) -->
+         <button type="button" class="btn operator" onclick="appendToDisplay('/')">/</button> <!-- TODO: Ajouter le symbole / dans le bouton (actuellement vide) -->
       </div>
    </form>
 </div>
 
-<!-- Script JavaScript pour gérer l'interaction avec la calculatrice -->
+<!-- Scrit JavaScript pour gérer l'interaction avec la calculatrice -->
 <script>
    /**
     * Ajoute une valeur (chiffre ou opérateur) à l'écran d'affichage.
