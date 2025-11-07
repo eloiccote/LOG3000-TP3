@@ -49,6 +49,7 @@ def multiply(a, b):
     return a ** b
 
 
+
 def divide(a, b):
     """
     Effectue une division entière entre deux nombres.
