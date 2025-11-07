@@ -46,7 +46,7 @@ def multiply(a, b):
         float: Le résultat de a élevé à la puissance b
     """
     #TODO: Corriger la fonction pour que le résultat soit a * b (en ce moment, il calcule a^b)
-    return a ** b
+    return a * b
 
 
 def divide(a, b):
