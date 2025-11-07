@@ -1,6 +1,7 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import re
 
 import pytest 
 from app import calculate, app 
@@ -85,8 +86,8 @@ def test_html_button_product(client):
     response = client.get('/')
     html = response.data.decode('utf-8')
 
-    assert '>' not in html.split('*')[0]
-
+    assert re.search(r'<button[^>]*>\s*\*\s*</button>', html) or re.search(r'value="\*"', html), \
+        "Multiplication button not found in HTML"
 def test_html_button_division(client): 
     response = client.get('/')
     html = response.data.decode('utf-8')
