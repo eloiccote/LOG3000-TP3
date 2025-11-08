@@ -62,7 +62,8 @@ Pour arrêter l'application, retournez dans le terminal et appuyez sur :
 
 ## Exécution des tests
 
-//TODO : À faire
+Pour executer les tests, il faut executer la commande pytest -v dans le terminal. 
+La commande peut etre executee a la racine du projet ou dans le dossier \tests.
 
 ## Fluc de contribution
 
