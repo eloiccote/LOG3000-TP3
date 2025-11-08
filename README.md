@@ -30,6 +30,11 @@ Installer Flask :
 pip install flask
 ```
 
+Installer pytest (pour les tests) :
+```bash
+pip install pytest
+```
+
 ## Guide d'utilisation
 
 ### 1. Lancer l'application
@@ -62,9 +67,45 @@ Pour arrêter l'application, retournez dans le terminal et appuyez sur :
 
 ## Exécution des tests
 
-Pour executer les tests, il faut executer la commande pytest -v dans le terminal. 
-La commande peut etre executee a la racine du projet ou dans le dossier \tests.
+Pour exécuter les tests, utilisez la commande suivante depuis le répertoire du projet :
+```bash
+python -m pytest -v
+```
 
-## Fluc de contribution
+## Flux de contribution
 
-//TODO : À faire
+### Branches
+
+- **main** : Branche principale contenant le code stable
+- Pour toute modification, créer une branche depuis `main` :
+  - `feature/nom-fonctionnalite` pour une nouvelle fonctionnalité
+  - `bugfix/nom-bug` pour corriger un bug
+  - `docs/nom-documentation` pour des modifications de documentation
+
+### Processus de contribution
+
+1. Créer une issue décrivant le problème ou la fonctionnalité
+2. Créer une branche appropriée pour l'issue (`feature/`, `fix/`, ou `docs/`)
+3. Faire les modifications nécessaires sur cette branche
+4. Écrire et exécuter les tests (si applicable)
+5. Réexécuter les tests qui échouaient pour vérifier la correction
+6. Commit avec un message clair expliquant comment la modification résout le problème
+7. Pousser la branche sur GitHub
+8. Créer une Pull Request vers `main` en liant l'issue
+9. Attendre la révision d'un membre de l'équipe
+10. Merger après approbation
+11. Documenter que les tests passent maintenant
+12. Fermer l'issue en la marquant comme complétée
+
+### Pull Requests
+
+- Décrire clairement les changements effectués dans la description
+- Lier l'issue correspondante (si applicable)
+- Une révision par un pair est requise avant le merge
+- Ne jamais merger sa propre Pull Request
+
+### Issues
+
+- Créer une issue pour chaque bug ou fonctionnalité à développer
+- Assigner l'issue au membre responsable de la tâche
+- Référencer l'issue dans les commits
