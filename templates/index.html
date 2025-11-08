@@ -65,7 +65,9 @@
       // Actuellement, le message d'erreur reste et le nouveau chiffre/opérateur s'ajoute à la fin.
       // Exemple du bug : "Error: invalid expression" + clic sur "5" = "Error: invalid expression5"
       // Solution suggérée : if (display.value.startsWith('Error:')) { display.value = ''; }
-      
+       if (display.value.startsWith('Error:')) {
+         display.value = '';
+       }
       // Concaténer la nouvelle valeur à la fin du contenu actuel
       display.value += value;
    }
