@@ -21,8 +21,17 @@ from app import calculate, app
 
 def test_calculate_addition(): 
     """
-    Verifie que calculate() gere correctement les expressions d'addition,
-    avec ou sans espaces autour des operateurs. 
+    Verifie le traitement des expressions d'addition simples par calculate().
+
+    Args: 
+        Aucun argument externe : les valeurs sont fournies directement
+        dans les assertions de test. 
+    
+    Returns:
+        None. les assertions valident la somme correcte de deux operandes. 
+
+    Raises: 
+        AssertionError: Si le resultat de l'addition est incorrect.
     """
     assert calculate("1+0") == 1
     assert calculate("0 + 0") == 0 
@@ -30,8 +39,17 @@ def test_calculate_addition():
 
 def test_calculate_substraction(): 
     """
-    Verifie que calculate() gere correctement les soustractions simples, 
-    incluant les resultats negatifs et les zeros. 
+    Verifie le traitement des expressions de soustraction simples par calculate().
+
+    Args: 
+        Aucun argument externe : les valeurs sont fournies directement
+        dans les assertions de test. 
+    
+    Returns:
+        None. les assertions valident la difference correcte de deux operandes. 
+
+    Raises: 
+        AssertionError: Si le resultat de soustraction est incorrect.
     """
     assert calculate("5 -4") == 1 
     assert calculate(" 4-5 ") == -1 
@@ -39,8 +57,17 @@ def test_calculate_substraction():
 
 def test_calculate_multiplication(): 
     """
-    Verifie que calculate() gere les multiplications, 
-    incluant les cas de produit nul et les valeurs entiere simples. 
+    Verifie le traitement des expressions de multiplication simples par calculate().
+
+    Args: 
+        Aucun argument externe : les valeurs sont fournies directement
+        dans les assertions de test. 
+    
+    Returns:
+        None. les assertions valident le produit correcte de deux operandes. 
+
+    Raises: 
+        AssertionError: Si le resultat de multiplication est incorrect.
     """
     assert calculate("1*7") == 7
     assert calculate(" 5 * 0") == 0
@@ -48,8 +75,17 @@ def test_calculate_multiplication():
 
 def test_calculate_division(): 
     """
-    Verifie que calculate() effectue une division entiere correcte
-    et que le resultat est arrondi vers le bas. 
+    Verifie le traitement des expressions de division entiere simples par calculate().
+
+    Args: 
+        Aucun argument externe : les valeurs sont fournies directement
+        dans les assertions de test. 
+    
+    Returns:
+        None. les assertions valident la division correcte de deux operandes. 
+
+    Raises: 
+        AssertionError: Si le resultat de la division est incorrect.
     """
     assert calculate("10 / 2") == 5
     assert calculate("9/2") == 4 
@@ -57,9 +93,15 @@ def test_calculate_division():
 def test_calculate_invalid_expression(): 
     """
     Verifie que calculate leve une ValueError pour des expressions invalides : 
-    - chaine vide. 
-    - operateurs consecutifs. 
-    - operateurs manquants ou expressions incompletes. 
+    Args: 
+        Aucun argument externe.
+    
+    Returns:
+        None. 
+
+    Raises: 
+        ValueError: Si l'expression est vide, contient plusieurs operateurs,
+        ou a un format incorrect.'
     """
     with pytest.raises(ValueError): 
         assert calculate("")
@@ -77,7 +119,8 @@ def test_calculate_invalid_expression():
 def client(): 
     """
     Initialise un client de test Flask pour simuler des requetes HTTP,
-    sans lancer le serveur reel.
+    Returns:
+        FlaskClient: Une instance de client de test Flask utilisable pour les tests d'integration.
     """
     app.config["TESTING"] = True 
     with app.test_client() as client: 
@@ -86,7 +129,15 @@ def client():
 def test_index_get(client): 
     """
     Verifie que la page d'acceuil est accessible via GET 
-    et contient une structure HTML valide. 
+    et contient une structure HTML valide.
+    Args:
+        client (FlaskClient): Le client de test Flask. 
+
+    Returns:
+        None. 
+    
+    Raises:
+        AssertionError: Si la page ne repond pas ou ne contient pas la balise HTML. 
     """
     response = client.get('/') 
     assert response.status_code == 200 
@@ -96,6 +147,15 @@ def test_index_post_valid(client):
     """
     Verifie qu'une requete POST valide retourne
     une reponse contenant le bon resulat.
+
+    Args:
+        client (FlaskClient): Le client de test Flask. 
+
+    Returns:
+        None. 
+    
+    Raises:
+        AssertionError: Si le resultat affiche est incorrect. 
     """
     response = client.post('/', data={'display': '2+3'})
     assert response.status_code == 200 
@@ -105,6 +165,15 @@ def test_index_post_invalid(client):
     """
     Verifie qu'une requete POST invalide affiche 
     un message d'erreur dans la page HTML.
+
+    Args:
+        client (FlaskClient): Le client de test Flask. 
+
+    Returns:
+        None. 
+    
+    Raises:
+        AssertionError: Si le message d'erreur n'est pas present.
     """
     response = client.post('/', data={'display': '2++3'})
     assert b"Error:" in response.data 
@@ -112,6 +181,15 @@ def test_index_post_invalid(client):
 def test_html_buttons_numbers(client): 
     """
     Verifie que les boutons des chiffres 1 a 9 sont bien presents dans le code HTML. 
+
+    Args:
+        client (FlaskClient): Le client de test Flask. 
+
+    Returns:
+        None. 
+    
+    Raises:
+        AssertionError: Si l'un des boutons numeriques et manquant. 
     """
     response = client.get('/')
     html = response.data.decode('utf-8')
@@ -130,6 +208,15 @@ def test_html_button_addition(client):
     """
     Verifie la presence du bouton d'addition ('+') dans le HTML. 
     Peut detecter les balises avec ou sans attributs.
+
+    Args:
+        client (FlaskClient): Le client de test Flask. 
+
+    Returns:
+        None. 
+    
+    Raises:
+        AssertionError: Si le bouton d'addition est manquant.
     """
     response = client.get('/')
     html = response.data.decode('utf-8')
@@ -141,6 +228,15 @@ def test_html_button_subtraction(client):
     """
     Verifie la presence du bouton de soustraction ('-') dans le HTML. 
     Peut detecter les balises avec ou sans attributs.
+
+    Args:
+        client (FlaskClient): Le client de test Flask. 
+
+    Returns:
+        None. 
+    
+    Raises:
+        AssertionError: Si le bouton de soustraction est manquant.
     """
     response = client.get('/')
     html = response.data.decode('utf-8')
@@ -152,6 +248,15 @@ def test_html_button_product(client):
     """
     Verifie la presence du bouton multiplication ('*') dans le HTML. 
     Peut detecter les balises avec ou sans attributs.
+
+    Args:
+        client (FlaskClient): Le client de test Flask. 
+
+    Returns:
+        None. 
+    
+    Raises:
+        AssertionError: Si le bouton de multiplication est manquant.
     """
     response = client.get('/')
     html = response.data.decode('utf-8')
@@ -164,6 +269,15 @@ def test_html_button_division(client):
     """
     Verifie la presence du bouton de division ('/') dans le HTML. 
     Peut detecter les balises avec ou sans attributs.
+
+    Args:
+        client (FlaskClient): Le client de test Flask. 
+
+    Returns:
+        None. 
+    
+    Raises:
+        AssertionError: Si le bouton de division est manquant.
     """
     response = client.get('/')
     html = response.data.decode('utf-8')

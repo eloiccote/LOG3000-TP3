@@ -18,8 +18,17 @@ from operators import add, subtract, multiply, divide
 
 def test_add():
     """
-    Verifie que la fonction add() additionne correctement deux nombres. 
-    Teste plusieurs cas simples incluant des zeros et des entiers positifs.
+    Verifie le comportement de la fonction add(a, b). 
+
+    Args: 
+        Aucun argument externe : les valeurs sont fournies directement
+        dans les assertions de test. 
+    
+    Returns:
+        None. Le test reussit si la fonction retroune les valeurs attendues.
+
+    Raises: 
+        AssertionError: Si une des assertions echoue.
     """
     assert add(1, 0) == 1
     assert add(0, 0) == 0
@@ -27,8 +36,17 @@ def test_add():
 
 def test_subtract(): 
     """
-    Verifie que la fonction subtract() soustrait correctement le second operande du premier. 
-    Teste des cas positifs, negatifs et nuls. 
+    Verifie le comportement de la fonction subtract(a, b). 
+
+    Args: 
+        Aucun argument externe : les valeurs sont fournies directement
+        dans les assertions de test. 
+    
+    Returns:
+        None. Le test reussit si la fonction retroune les valeurs attendues.
+
+    Raises: 
+        AssertionError: Si une des assertions echoue.
     """
     assert subtract(5, 4) == 1
     assert subtract(4, 5) == -1
@@ -36,8 +54,17 @@ def test_subtract():
 
 def test_multiply(): 
     """
-    Verifie que la fonction multiply() multiplie correctement deux nombres. 
-    Teste des cas incluant des zeros, des nombres positifs et des produits simples. 
+    Verifie le comportement de la fonction multiply(a, b). 
+
+    Args: 
+        Aucun argument externe : les valeurs sont fournies directement
+        dans les assertions de test. 
+    
+    Returns:
+        None. Le test reussit si la fonction retroune les valeurs attendues.
+
+    Raises: 
+        AssertionError: Si une des assertions echoue.
     """
     assert multiply(1, 7) == 7
     assert multiply(5, 0) == 0 
@@ -45,9 +72,17 @@ def test_multiply():
 
 def test_divide(): 
     """
-    Verifie que la fonction divide() effectue une division entiere correcte. 
-    Teste des cas avec un quotient exact ou coupe. 
-    Teste aussi la levee d'une exception lors de la division par zero. 
+    Verifie le comportement de la fonction divide(a, b). 
+
+    Args: 
+        Aucun argument externe : les valeurs sont fournies directement
+        dans les assertions de test. 
+    
+    Returns:
+        None. Le test reussit si la fonction retroune les valeurs attendues.
+
+    Raises: 
+        AssertionError: Si une des assertions echoue.
     """
     assert divide(10, 2) == 5 
     assert divide(9, 2) == 4 
