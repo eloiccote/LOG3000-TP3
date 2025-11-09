@@ -1,4 +1,4 @@
-# Calculatrice Web - Équipe 104
+# Calculatrice Web - Équipe 21
 
 ## Objectif
 
@@ -79,7 +79,7 @@ python -m pytest -v
 - **main** : Branche principale contenant le code stable
 - Pour toute modification, créer une branche depuis `main` :
   - `feature/nom-fonctionnalite` pour une nouvelle fonctionnalité
-  - `bugfix/nom-bug` pour corriger un bug
+  - `fix/nom-bug` pour corriger un bug
   - `docs/nom-documentation` pour des modifications de documentation
 
 ### Processus de contribution
