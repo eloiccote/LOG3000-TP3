@@ -50,7 +50,7 @@ def test_divide():
     Teste aussi la levee d'une exception lors de la division par zero. 
     """
     assert divide(10, 2) == 5 
-    assert divide(9, 2) == 4 
+    assert divide(9, 2) == 4.5
     with pytest.raises(ZeroDivisionError): 
         divide(5, 0)
         
