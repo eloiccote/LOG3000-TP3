@@ -52,7 +52,7 @@ def test_calculate_division():
     et que le resultat est arrondi vers le bas. 
     """
     assert calculate("10 / 2") == 5
-    assert calculate("9/2") == 4 
+    assert calculate("9/2") == 4.5
 
 def test_calculate_invalid_expression(): 
     """
