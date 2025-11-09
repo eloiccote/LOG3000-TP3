@@ -55,19 +55,14 @@
    /**
     * Ajoute une valeur (chiffre ou opérateur) à l'écran d'affichage.
     * 
-    * @param {string} value - La valeur à ajouter à l'écran
+    * @Args {string} value - La valeur à ajouter à l'écran
     */
    function appendToDisplay(value) {
       const display = document.getElementById('display');
-      
-      // TODO: Corriger le bug - Si l'écran contient un message d'erreur (commence par "Error:"),
-      // il faut d'abord effacer l'écran avant d'ajouter la nouvelle valeur.
-      // Actuellement, le message d'erreur reste et le nouveau chiffre/opérateur s'ajoute à la fin.
-      // Exemple du bug : "Error: invalid expression" + clic sur "5" = "Error: invalid expression5"
-      // Solution suggérée : if (display.value.startsWith('Error:')) { display.value = ''; }
-       if (display.value.startsWith('Error:')) {
+      // Si l'écran contient un message d'erreur, effacer l'écran
+      if (display.value.startsWith('Error:')) {
          display.value = '';
-       }
+      }
       // Concaténer la nouvelle valeur à la fin du contenu actuel
       display.value += value;
    }

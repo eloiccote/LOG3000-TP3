@@ -46,11 +46,11 @@ python app.py
 
 Vous devriez voir un message similaire à :
 ```
- * Running on http://127.0.0.1:5000
+ * Running on http://127.0.0.1:5001
  * Debug mode: on
 ```
 
-Ouvrez ensuite votre navigateur web et accédez à l'adresse : **http://127.0.0.1:5000/**
+Ouvrez ensuite votre navigateur web et accédez à l'adresse : **http://127.0.0.1:5001/**
 
 ### 2. Utiliser la calculatrice
 
