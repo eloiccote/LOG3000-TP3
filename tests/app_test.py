@@ -88,7 +88,7 @@ def test_calculate_division():
         AssertionError: Si le resultat de la division est incorrect.
     """
     assert calculate("10 / 2") == 5
-    assert calculate("9/2") == 4 
+    assert calculate("9/2") == 4.5
 
 def test_calculate_invalid_expression(): 
     """
